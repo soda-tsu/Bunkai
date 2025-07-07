@@ -4,12 +4,20 @@ import SearchBar from "./components/SearchBar";
 import Themes from "./components/Themes";
 import { GlobalStyles } from "./GlobalStyles";
 import { ThemeProvider } from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Font from "./components/Font";
+import Section from "./components/Section";
+import Radicais from "./components/Radicais";
 
 function App() {
-  const [selectedTheme, setSelectedTheme] = useState("1");
+  const [selectedTheme, setSelectedTheme] = useState("3");
   const [selectedFont, setSelectedFont] = useState("1");
+  const [loader, setLoader] = useState(true);
+  const [searchMade, setSearchMade] = useState(false);
+  const [kanjiData, setKanjiData] = useState(null);
+  const [kanjiSearched, setKanjiSearched] = useState("");
+
+  useEffect(() => {}, [kanjiData]);
 
   const handleThemeChange = (event) => {
     setSelectedTheme(event.target.value);
@@ -39,7 +47,12 @@ function App() {
         <main>
           <Logo />
           <div className="flexSearchBarAndThemes">
-            <SearchBar />
+            <SearchBar
+              setKanjiData={setKanjiData}
+              setSearchMade={setSearchMade}
+              setLoader={setLoader}
+              setKanjiSearched={setKanjiSearched}
+            />
             <div className="themesAndFont">
               <Themes
                 handleThemeChange={handleThemeChange}
@@ -51,7 +64,40 @@ function App() {
               />
             </div>
           </div>
-          <KanjiBox font={font} />
+          <div>
+            <KanjiBox
+              kanjiSearched={kanjiSearched}
+              loader={loader}
+              font={font}
+            />
+            {kanjiData && <Radicais radicais={kanjiData?.radicais} />}
+          </div>
+          <div className="contentFlex">
+            {searchMade && loader ? (
+              <div className="loader" />
+            ) : (
+              kanjiData && (
+                <>
+                  <Section
+                    tittle="Explicação dos Radicais"
+                    content={kanjiData?.explicacao_radicais}
+                  />
+                  <Section
+                    tittle="Contexto de Criação"
+                    content={kanjiData?.contexto_criacao}
+                  />
+                  <Section
+                    tittle="Mnemônico para lembrar"
+                    content={kanjiData?.mnemonica}
+                  />
+                  <Section
+                    tittle="Palavras comuns"
+                    mapInfo={kanjiData?.palavras_comuns}
+                  />
+                </>
+              )
+            )}
+          </div>
         </main>
       </ThemeProvider>
     </>

@@ -8,4 +8,5 @@ export const StyledLogo = styled.h1`
   font-weight: 400;
   font-size: 7.2rem;
   user-select: none;
+  grid-row: 1/3;
 `;

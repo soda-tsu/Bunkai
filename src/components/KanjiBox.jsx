@@ -1,10 +1,12 @@
 import React from "react";
 import { StyledKanjiBox } from "../styles/KanjiBox";
+import { useState, useEffect } from "react";
 
-function KanjiBox({ font }) {
+function KanjiBox({ font, kanjiSearched, loader }) {
+  useEffect(() => {}, [loader]);
   return (
     <StyledKanjiBox font={font}>
-      <p>生</p>
+      <p>{kanjiSearched && !loader ? kanjiSearched : "?"}</p>
     </StyledKanjiBox>
   );
 }

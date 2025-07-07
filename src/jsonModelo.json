@@ -1,0 +1,30 @@
+{
+  "radicais": [
+    {
+      "radical": "⺅",
+      "significado": "pessoa"
+    },
+    {
+      "radical": "皮",
+      "significado": "pele"
+    }
+  ],
+  "significado_principal": "ele",
+  "contexto_criacao": "O kanji 彼 é composto pelos radicais de pessoa e pele. Originalmente, ele foi usado para representar algo distante ou outra pessoa. A ideia é que a 'pele' representa algo externo ou diferente, enquanto a 'pessoa' implica que se refere a outra pessoa, como alguém distante ou estrangeiro.",
+  "explicacao_radicais": "O radical '⺅' indica que o kanji se relaciona a uma pessoa ou alguém. O radical '皮', que significa pele, sugere algo externo ou diferente, contribuindo para a ideia de distância ou de uma terceira pessoa.",
+  "mnemonica": "Imagine uma pessoa (⺅) coberta por uma pele (皮) diferente, representando 'ele', alguém fora do seu círculo imediato.",
+  "palavras_comuns": [
+    {
+      "palavra": "彼女",
+      "leitura": "かのじょ",
+      "significado": "ela",
+      "contexto": "Usada para referir-se a uma mulher ou namorada de alguém."
+    },
+    {
+      "palavra": "彼ら",
+      "leitura": "かれら",
+      "significado": "eles",
+      "contexto": "Usada para referir-se a um grupo de pessoas do sexo masculino ou misto."
+    }
+  ]
+}
